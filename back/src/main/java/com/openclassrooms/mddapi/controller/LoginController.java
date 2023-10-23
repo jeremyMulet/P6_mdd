@@ -29,6 +29,8 @@ public class LoginController {
 //            }),
 //            @ApiResponse(responseCode = "400", description = "Invalid Request", content = @Content),
 //    })
+
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/register")
     public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest request) {
         return ResponseEntity.ok(authService.register(request));

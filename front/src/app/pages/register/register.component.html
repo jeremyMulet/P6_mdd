@@ -6,25 +6,28 @@
     </div>
     <div class="form-container">
         <h1>Inscription</h1>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <p>
             <mat-form-field appearance="outline">
                 <mat-label>Nom d'utilisateur</mat-label>
-                <input matInput placeholder="">
+                <input matInput placeholder="Nom" formControlName="username">
             </mat-form-field>
         </p>
         <p>
             <mat-form-field appearance="outline">
                 <mat-label>Adresse email</mat-label>
-                <input matInput placeholder="">
+                <input matInput placeholder="Email" formControlName="email">
             </mat-form-field>
         </p>
         <p>
             <mat-form-field appearance="outline">
                 <mat-label>Mot de passe</mat-label>
-                <input matInput placeholder="">
+                <input matInput placeholder="Password" formControlName="password">
             </mat-form-field>
         </p>
+            <button mat-raised-button color="primary" type="submit" [disabled]="registerForm.invalid">S'inscrire</button>
+            <span *ngIf="onError" class="error">An error occurred</span>
+        </form>
 
-        <button mat-raised-button color="primary">S'inscrire</button>
     </div>
 </div>

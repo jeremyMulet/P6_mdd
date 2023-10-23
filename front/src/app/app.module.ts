@@ -12,13 +12,17 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
+import {ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
     declarations: [AppComponent, HomeComponent, RegisterComponent, LoginComponent, NotFoundComponent],
     imports: [
         BrowserModule,
+        HttpClientModule,
         AppRoutingModule,
         BrowserAnimationsModule,
+        ReactiveFormsModule,
         MatButtonModule,
         MatInputModule,
         MatIconModule

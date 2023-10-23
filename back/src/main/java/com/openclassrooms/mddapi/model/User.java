@@ -27,14 +27,14 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false, unique = true, length = 50)
+    @Column(nullable = false, unique = true, length = 255)
     private String email;
 
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false, length = 255)
     private String password;
 
-    @Column(nullable = false, length = 20)
-    private String userName;
+    @Column(nullable = false, length = 255)
+    private String username;
 
 
     @Override
