@@ -1,0 +1,32 @@
+<div>
+    <app-header></app-header>
+
+    <div class="form" fxLayout="column" fxLayoutAlign="center center">
+        <mat-card-header fxFlex>
+            <mat-card-title>Profil utilisateur</mat-card-title>
+        </mat-card-header>
+
+        <form [formGroup]="profilForm" (ngSubmit)="onSubmit()">
+            <mat-card-content fxLayout="column">
+                <mat-form-field appearance="outline" fxFlex>
+                    <mat-label>Adresse email</mat-label>
+                    <input matInput placeholder="Email" formControlName="email">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" fxFlex>
+                    <mat-label>Mot de passe</mat-label>
+                    <input matInput placeholder="Password" formControlName="password">
+                </mat-form-field>
+            </mat-card-content>
+            <mat-card-footer fxLayout="column" fxLayoutAlign="center center">
+                <button mat-raised-button color="primary" type="submit" [disabled]="profilForm.invalid">Se connecter</button>
+                <p class="error" (click)="logout()">Se déconnecter</p>
+            </mat-card-footer>
+        </form>
+        <hr>
+        <mat-divider style="height: 1px;"></mat-divider>
+        <mat-card-header fxFlex>
+            <mat-card-title>Abonnements</mat-card-title>
+        </mat-card-header>
+    </div>
+</div>
