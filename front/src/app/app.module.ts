@@ -18,9 +18,11 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import { ArticlesComponent } from './pages/articles/articles.component';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatCardModule} from "@angular/material/card";
+import { ProfilComponent } from './pages/profil/profil.component';
+import {MatDividerModule} from "@angular/material/divider";
 
 @NgModule({
-    declarations: [AppComponent, HomeComponent, RegisterComponent, LoginComponent, NotFoundComponent, HeaderComponent, ArticlesComponent],
+    declarations: [AppComponent, HomeComponent, RegisterComponent, LoginComponent, NotFoundComponent, HeaderComponent, ArticlesComponent, ProfilComponent],
     imports: [
         BrowserModule,
         HttpClientModule,
@@ -32,7 +34,8 @@ import {MatCardModule} from "@angular/material/card";
         MatIconModule,
         MatToolbarModule,
         FlexLayoutModule,
-        MatCardModule
+        MatCardModule,
+        MatDividerModule
     ],
     providers: [
         {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}
