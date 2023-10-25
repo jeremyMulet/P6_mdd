@@ -1,0 +1,17 @@
+<div>
+    <mat-toolbar>
+        <img src="/assets/logo_p6.png" class="logo" alt="logo"/>
+        <div *ngIf="isLogged">
+            <span class="spacer"></span>
+            <button mat-button>
+                Articles
+            </button>
+            <button mat-button>
+                Thèmes
+            </button>
+            <button mat-button color="secondary">
+                <mat-icon>person</mat-icon>
+            </button>
+        </div>
+    </mat-toolbar>
+</div>

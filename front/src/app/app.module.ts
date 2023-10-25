@@ -14,9 +14,11 @@ import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { HeaderComponent } from './components/header/header.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 @NgModule({
-    declarations: [AppComponent, HomeComponent, RegisterComponent, LoginComponent, NotFoundComponent],
+    declarations: [AppComponent, HomeComponent, RegisterComponent, LoginComponent, NotFoundComponent, HeaderComponent],
     imports: [
         BrowserModule,
         HttpClientModule,
@@ -25,7 +27,8 @@ import {HttpClientModule} from "@angular/common/http";
         ReactiveFormsModule,
         MatButtonModule,
         MatInputModule,
-        MatIconModule
+        MatIconModule,
+        MatToolbarModule
     ],
     providers: [
         {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}

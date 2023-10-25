@@ -1,4 +1,5 @@
 <div>
+    <app-header></app-header>
     <div class="form-header">
         <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" (click)="onClickBackBtn()">
             <mat-icon>arrow_back</mat-icon>
@@ -6,19 +7,22 @@
     </div>
     <div class="form-container">
         <h1>Se connecter</h1>
-        <p>
-            <mat-form-field appearance="outline">
-                <mat-label>Adresse email</mat-label>
-                <input matInput placeholder="">
-            </mat-form-field>
-        </p>
-        <p>
-            <mat-form-field appearance="outline">
-                <mat-label>Mot de passe</mat-label>
-                <input matInput placeholder="">
-            </mat-form-field>
-        </p>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Adresse email</mat-label>
+                    <input matInput placeholder="Email" formControlName="email">
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Mot de passe</mat-label>
+                    <input matInput placeholder="Password" formControlName="password">
+                </mat-form-field>
+            </p>
 
-        <button mat-raised-button color="primary">Se connecter</button>
+            <button mat-raised-button color="primary">Se connecter</button>
+            <p *ngIf="onError" class="error">An error occurred</p>
+        </form>
     </div>
 </div>
