@@ -5,24 +5,29 @@
             <mat-icon>arrow_back</mat-icon>
         </button>
     </div>
-    <div class="form-container">
-        <h1>Se connecter</h1>
+    <div class="form" fxLayout="column" fxLayoutAlign="center center">
+
+        <mat-card-header fxFlex>
+            <mat-card-title>Se connecter</mat-card-title>
+        </mat-card-header>
+
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-            <p>
-                <mat-form-field appearance="outline">
+            <mat-card-content fxLayout="column">
+                <mat-form-field appearance="outline" fxFlex>
                     <mat-label>Adresse email</mat-label>
                     <input matInput placeholder="Email" formControlName="email">
                 </mat-form-field>
-            </p>
-            <p>
-                <mat-form-field appearance="outline">
+
+                <mat-form-field appearance="outline" fxFlex>
                     <mat-label>Mot de passe</mat-label>
                     <input matInput placeholder="Password" formControlName="password">
                 </mat-form-field>
-            </p>
-
-            <button mat-raised-button color="primary">Se connecter</button>
-            <p *ngIf="onError" class="error">An error occurred</p>
+            </mat-card-content>
+            <mat-card-footer fxLayout="column" fxLayoutAlign="center center">
+                <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Se connecter</button>
+                <p *ngIf="onError" class="error">An error occurred</p>
+            </mat-card-footer>
         </form>
+
     </div>
 </div>

@@ -1,20 +1,19 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {SessionService} from "../../core/services/session.service";
+import {Observable} from "rxjs";
 
 @Component({
     selector: 'app-header',
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
-    isLogged = false
 
     constructor(private sessionService: SessionService) {
     }
 
-    ngOnInit(): void {
-        this.isLogged = this.sessionService.isLogged
+    public $isLogged(): Observable<boolean> {
+        return this.sessionService.$isLogged();
     }
-
 }

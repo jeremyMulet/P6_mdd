@@ -34,10 +34,10 @@ public class LoginController {
     }
 
 
-//    @GetMapping("/me")
-//    public ResponseEntity<Optional<UserResponse>> me(HttpServletRequest request) {
-//        return ResponseEntity.ok(Optional.ofNullable(authService.currentUser(request)));
-//    }
+    @GetMapping("/me")
+    public ResponseEntity<Optional<UserResponse>> me(HttpServletRequest request) {
+        return ResponseEntity.ok(Optional.ofNullable(authService.currentUser(request)));
+    }
 
 
 }

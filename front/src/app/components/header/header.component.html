@@ -1,8 +1,8 @@
 <div>
     <mat-toolbar>
         <img src="/assets/logo_p6.png" class="logo" alt="logo"/>
-        <div *ngIf="isLogged">
-            <span class="spacer"></span>
+        <span class="spacer"></span>
+        <div *ngIf="$isLogged() | async">
             <button mat-button>
                 Articles
             </button>
