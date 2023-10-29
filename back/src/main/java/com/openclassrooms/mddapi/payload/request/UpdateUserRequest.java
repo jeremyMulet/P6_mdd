@@ -1,4 +1,4 @@
-package com.openclassrooms.mddapi.payload.response;
+package com.openclassrooms.mddapi.payload.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -6,17 +6,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * Created by Jérémy MULET on 20/10/2023.
+ * Created by Jérémy MULET on 29/10/2023.
  */
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserResponse {
+public class UpdateUserRequest {
 
-    private Long id;
-
-    private String userName;
+    private String username;
 
     private String email;
 }

@@ -22,6 +22,7 @@ import { ProfilComponent } from './pages/profil/profil.component';
 import {MatDividerModule} from "@angular/material/divider";
 import { ThemesComponent } from './pages/themes/themes.component';
 import {JwtInterceptor} from "./interceptors/jwt.interceptor";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
     declarations: [
@@ -43,6 +44,7 @@ import {JwtInterceptor} from "./interceptors/jwt.interceptor";
         ReactiveFormsModule,
         MatButtonModule,
         MatInputModule,
+        MatSnackBarModule,
         MatIconModule,
         MatToolbarModule,
         FlexLayoutModule,

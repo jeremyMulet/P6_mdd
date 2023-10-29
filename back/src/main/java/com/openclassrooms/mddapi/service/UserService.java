@@ -4,9 +4,12 @@ package com.openclassrooms.mddapi.service;
 
 import com.openclassrooms.mddapi.exception.UserNotFoundException;
 import com.openclassrooms.mddapi.model.User;
+import com.openclassrooms.mddapi.payload.request.UpdateUserRequest;
+import com.openclassrooms.mddapi.payload.response.MessageResponse;
 import com.openclassrooms.mddapi.payload.response.UserResponse;
 import com.openclassrooms.mddapi.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -23,22 +26,35 @@ public class UserService  implements UserDetailsService {
 
     private final UserRepository userRepository;
 
-//    /**
-//     * Retrieve a user by its ID and convert it to a UserResponse DTO.
-//     *
-//     * @param id the ID of the user to retrieve.
-//     * @return a UserResponse DTO representing the user.
-//     * @throws UserNotFoundException if no user is found for the given ID.
-//     */
-//    public UserResponse getUserById(Integer id) {
-//        User user = userRepository.getReferenceById(id)
-//                .orElseThrow(() -> new UserNotFoundException("User with ID " + id + " not found"));
-//        return UserResponse.builder()
-//                .userName(user.getUsername())
-//                .email(user.getEmail())
-//                .id(id)
-//                .build();
-//    }
+    /**
+     * Retrieve a user by its ID and convert it to a UserResponse DTO.
+     *
+     * @param id the ID of the user to retrieve.
+     * @return a UserResponse DTO representing the user.
+     * @throws UserNotFoundException if no user is found for the given ID.
+     */
+    public UserResponse getUserById(Long id) {
+        User user = userRepository.getReferenceById(id)
+                .orElseThrow(() -> new UserNotFoundException("User with ID " + id + " not found"));
+        return UserResponse.builder()
+                .userName(user.getUsername())
+                .email(user.getEmail())
+                .id(id)
+                .build();
+    }
+
+    public  ResponseEntity<MessageResponse> updateUserById(Long id, UpdateUserRequest request) {
+        return userRepository.getReferenceById(id).map(user -> {
+            if (request.getEmail() != null) {
+                user.setEmail(request.getEmail());
+            }
+            if (request.getUsername() != null) {
+                user.setName(request.getUsername());
+            }
+            userRepository.save(user);
+            return ResponseEntity.ok(MessageResponse.builder().message("Profile mis à jour!").build());
+        }).orElseGet(() -> ResponseEntity.notFound().build());
+    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -50,4 +66,5 @@ public class UserService  implements UserDetailsService {
                 .name(user.getName())
                 .build();
     }
+
 }

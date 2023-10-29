@@ -6,17 +6,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * Created by Jérémy MULET on 20/10/2023.
+ * Created by Jérémy MULET on 29/10/2023.
  */
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserResponse {
-
-    private Long id;
-
-    private String userName;
-
-    private String email;
+public class MessageResponse {
+    private String message;
 }
