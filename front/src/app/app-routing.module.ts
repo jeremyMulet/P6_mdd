@@ -6,6 +6,7 @@ import {RegisterComponent} from "./pages/register/register.component";
 import {NotFoundComponent} from "./pages/not-found/not-found.component";
 import {ArticlesComponent} from "./pages/articles/articles.component";
 import {ProfilComponent} from "./pages/profil/profil.component";
+import {ThemesComponent} from "./pages/themes/themes.component";
 
 const routes: Routes = [
     {
@@ -23,6 +24,10 @@ const routes: Routes = [
     {
         path: 'articles',
         component: ArticlesComponent
+    },
+    {
+        path: 'themes',
+        component: ThemesComponent
     },
     {
         path: 'profil',

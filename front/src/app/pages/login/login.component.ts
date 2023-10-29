@@ -3,7 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../core/services/auth-service.service";
 import {Router} from "@angular/router";
 import {LoginRequest} from "../../payload/requests/loginRequest.interface";
-import {SessionInformation} from "../../core/models/sessionInformation.model";
+import {SessionInformation} from "../../core/interfaces/sessionInformation";
 import {SessionService} from "../../core/services/session.service";
 
 @Component({

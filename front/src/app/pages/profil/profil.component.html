@@ -9,17 +9,18 @@
         <form [formGroup]="profilForm" (ngSubmit)="onSubmit()">
             <mat-card-content fxLayout="column">
                 <mat-form-field appearance="outline" fxFlex>
-                    <mat-label>Adresse email</mat-label>
-                    <input matInput placeholder="Email" formControlName="email">
+                    <mat-label>Username</mat-label>
+                    <input matInput formControlName="username">
                 </mat-form-field>
 
                 <mat-form-field appearance="outline" fxFlex>
-                    <mat-label>Mot de passe</mat-label>
-                    <input matInput placeholder="Password" formControlName="password">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email">
                 </mat-form-field>
             </mat-card-content>
             <mat-card-footer fxLayout="column" fxLayoutAlign="center center">
-                <button mat-raised-button color="primary" type="submit" [disabled]="profilForm.invalid">Se connecter</button>
+                <button mat-raised-button color="primary" type="submit" [disabled]="profilForm.invalid">Sauvegarder
+                </button>
                 <p class="error" (click)="logout()">Se déconnecter</p>
             </mat-card-footer>
         </form>

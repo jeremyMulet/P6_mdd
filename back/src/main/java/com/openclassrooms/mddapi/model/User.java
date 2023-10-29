@@ -33,9 +33,9 @@ public class User implements UserDetails {
     @Column(nullable = false, length = 255)
     private String password;
 
+    @Getter
     @Column(nullable = false, length = 255)
-    private String username;
-
+    private String name;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

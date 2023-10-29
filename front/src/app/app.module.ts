@@ -12,7 +12,7 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
 import {ReactiveFormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { HeaderComponent } from './components/header/header.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import { ArticlesComponent } from './pages/articles/articles.component';
@@ -20,9 +20,21 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatCardModule} from "@angular/material/card";
 import { ProfilComponent } from './pages/profil/profil.component';
 import {MatDividerModule} from "@angular/material/divider";
+import { ThemesComponent } from './pages/themes/themes.component';
+import {JwtInterceptor} from "./interceptors/jwt.interceptor";
 
 @NgModule({
-    declarations: [AppComponent, HomeComponent, RegisterComponent, LoginComponent, NotFoundComponent, HeaderComponent, ArticlesComponent, ProfilComponent],
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        RegisterComponent,
+        LoginComponent,
+        NotFoundComponent,
+        HeaderComponent,
+        ArticlesComponent,
+        ProfilComponent,
+        ThemesComponent
+    ],
     imports: [
         BrowserModule,
         HttpClientModule,
@@ -38,7 +50,8 @@ import {MatDividerModule} from "@angular/material/divider";
         MatDividerModule
     ],
     providers: [
-        {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}
+        {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}},
+        {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
     ],
     bootstrap: [AppComponent],
 })

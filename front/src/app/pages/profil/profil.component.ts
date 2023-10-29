@@ -3,7 +3,10 @@ import {Router} from "@angular/router";
 import {SessionService} from "../../core/services/session.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {LoginRequest} from "../../payload/requests/loginRequest.interface";
-import {SessionInformation} from "../../core/models/sessionInformation.model";
+import {SessionInformation} from "../../core/interfaces/sessionInformation";
+import {UserService} from "../../core/services/user.service";
+import {User} from "../../core/interfaces/user";
+import {AuthService} from "../../core/services/auth-service.service";
 
 @Component({
     selector: 'app-profil',
@@ -12,16 +15,28 @@ import {SessionInformation} from "../../core/models/sessionInformation.model";
 })
 export class ProfilComponent implements OnInit {
 
-    profilForm!: FormGroup;
+    profilForm: FormGroup = this.fb.group( {
+        username: ["", [Validators.required,Validators.min(3)]],
+        email: ["", [Validators.required, Validators.email]]
+    });
 
-    constructor(private fb: FormBuilder, private router: Router, private sessionService: SessionService) {
+    constructor(
+        private fb: FormBuilder,
+        private router: Router,
+        private sessionService: SessionService,
+        private authService: AuthService,
+        private userService: UserService) {
     }
 
     ngOnInit(): void {
-        this.profilForm = this.fb.group( {
-            email: ['', [Validators.required, Validators.email]],
-            password: ['', [Validators.required, Validators.minLength(8)]]
-        })
+        this.authService.me().subscribe(
+            (user: User) => {
+                this.profilForm = this.fb.group( {
+                    username: [user.userName, [Validators.required,Validators.min(3)]],
+                    email: [user.email, [Validators.required, Validators.email]]
+                })
+            }
+        )
     }
 
     public logout(): void {

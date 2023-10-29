@@ -36,7 +36,7 @@ public class AuthenticationService {
 
     public AuthenticationResponse register(RegisterRequest request) {
         var user = User.builder()
-                .username(request.getUsername())
+                .name(request.getUsername())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .build();
@@ -75,7 +75,7 @@ public class AuthenticationService {
                     .orElseThrow();
             return UserResponse.builder()
                     .id(user.getId())
-                    .userName(user.getUsername())
+                    .userName(user.getName())
                     .email(user.getEmail())
                     .build();
         }

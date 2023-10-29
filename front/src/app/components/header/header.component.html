@@ -3,13 +3,13 @@
         <img src="/assets/logo_p6.png" class="logo" alt="logo"/>
         <span class="spacer"></span>
         <div *ngIf="$isLogged() | async">
-            <button mat-button>
+            <button routerLink="/articles" mat-button>
                 Articles
             </button>
-            <button mat-button>
+            <button routerLink="/themes" mat-button>
                 Thèmes
             </button>
-            <button mat-button color="secondary">
+            <button routerLink="/profil" mat-button color="secondary">
                 <mat-icon>person</mat-icon>
             </button>
         </div>
