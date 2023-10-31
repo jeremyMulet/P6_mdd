@@ -1,8 +1,10 @@
-package com.openclassrooms.mddapi.payload.response;
+package com.openclassrooms.mddapi.service;
 
 import com.openclassrooms.mddapi.model.User;
 import com.openclassrooms.mddapi.payload.request.AuthenticationRequest;
 import com.openclassrooms.mddapi.payload.request.RegisterRequest;
+import com.openclassrooms.mddapi.payload.response.AuthenticationResponse;
+import com.openclassrooms.mddapi.payload.response.UserResponse;
 import com.openclassrooms.mddapi.repository.UserRepository;
 import com.openclassrooms.mddapi.service.JwtService;
 import jakarta.servlet.http.HttpServletRequest;

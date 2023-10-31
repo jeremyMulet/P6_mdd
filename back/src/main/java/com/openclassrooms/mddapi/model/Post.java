@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 /**
  * Created by Jérémy MULET on 30/10/2023.
  */
@@ -30,5 +32,15 @@ public class Post {
     @ManyToOne
     @JoinColumn(name = "topic_id")
     private Topic topic;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User author;
+
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
 
 }

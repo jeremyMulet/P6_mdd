@@ -3,7 +3,7 @@ package com.openclassrooms.mddapi.controller;
 import com.openclassrooms.mddapi.payload.request.AuthenticationRequest;
 import com.openclassrooms.mddapi.payload.request.RegisterRequest;
 import com.openclassrooms.mddapi.payload.response.AuthenticationResponse;
-import com.openclassrooms.mddapi.payload.response.AuthenticationService;
+import com.openclassrooms.mddapi.service.AuthenticationService;
 import com.openclassrooms.mddapi.payload.response.UserResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;

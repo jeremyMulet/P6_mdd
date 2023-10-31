@@ -8,8 +8,7 @@ import java.util.Optional;
 /**
  * Created by Jérémy MULET on 20/10/2023.
  */
-public interface UserRepository extends JpaRepository<User, Integer> {
+public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByEmail(String email);
 
-    Optional<User> getReferenceById(Long id);
 }

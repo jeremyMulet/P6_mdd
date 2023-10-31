@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 /**
  * Created by Jérémy MULET on 30/10/2023.
  */
-public interface TopicRepository extends JpaRepository<Topic, Integer> {
+public interface TopicRepository extends JpaRepository<Topic, Long> {
 
 }
