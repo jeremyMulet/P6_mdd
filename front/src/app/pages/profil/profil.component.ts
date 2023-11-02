@@ -8,6 +8,8 @@ import {AuthService} from "../../core/services/auth-service.service";
 import {ProfileUpdateRequest} from "../../payload/requests/profileUpdateRequest";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {MessageResponse} from "../../payload/response/messageResponse";
+import {Observable} from "rxjs";
+import {Topic} from "../../core/interfaces/topic";
 
 @Component({
     selector: 'app-profil',
@@ -17,6 +19,7 @@ import {MessageResponse} from "../../payload/response/messageResponse";
 export class ProfilComponent implements OnInit {
 
     private user!:User;
+    myTopics$: Observable<Topic[]> = this.userService.getSubscribedTopics(this.sessionService.sessionInformation!.id);
 
     profilForm: FormGroup = this.fb.group({
         username: ["", [Validators.required, Validators.min(3)]],

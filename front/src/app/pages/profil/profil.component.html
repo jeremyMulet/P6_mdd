@@ -26,8 +26,14 @@
         </form>
         <hr>
         <mat-divider style="height: 1px;"></mat-divider>
+        <mat-card>
         <mat-card-header fxFlex>
             <mat-card-title>Abonnements</mat-card-title>
         </mat-card-header>
+            <app-topics-list *ngIf="myTopics$ | async as topics; else loading" [topics]="topics" [subscribe]="false"></app-topics-list>
+            <ng-template #loading>
+                <p>Chargement en cours...</p>
+            </ng-template>
+        </mat-card>
     </div>
 </div>

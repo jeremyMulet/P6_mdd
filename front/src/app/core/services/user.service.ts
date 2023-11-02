@@ -4,6 +4,7 @@ import {ProfileUpdateRequest} from "../../payload/requests/profileUpdateRequest"
 import {Observable} from "rxjs";
 import {MessageResponse} from "../../payload/response/messageResponse";
 import {Post} from "../interfaces/post";
+import {Topic} from "../interfaces/topic";
 
 @Injectable({
     providedIn: 'root'
@@ -15,7 +16,7 @@ export class UserService {
     constructor(private http: HttpClient) {
     }
 
-    updateProfile(request: ProfileUpdateRequest, id: number): Observable<MessageResponse> {
+    public updateProfile(request: ProfileUpdateRequest, id: number): Observable<MessageResponse> {
         return this.http.put<MessageResponse>(`${this.pathService}/${id}`, request);
     }
 
@@ -24,4 +25,7 @@ export class UserService {
     }
 
 
+    public getSubscribedTopics(id: number): Observable<Topic[]> {
+        return this.http.get<Topic[]>(`${this.pathService}/${id}/subscribed-topics`)
+    }
 }

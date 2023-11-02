@@ -24,6 +24,7 @@ import { ThemesComponent } from './pages/themes/themes.component';
 import {JwtInterceptor} from "./interceptors/jwt.interceptor";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { TopicsListComponent } from './components/topics-list/topics-list.component';
+import { AddPostComponent } from './add-post/add-post.component';
 
 @NgModule({
     declarations: [
@@ -37,6 +38,7 @@ import { TopicsListComponent } from './components/topics-list/topics-list.compon
         ProfilComponent,
         ThemesComponent,
         TopicsListComponent,
+        AddPostComponent,
     ],
     imports: [
         BrowserModule,
