@@ -2,12 +2,14 @@ package com.openclassrooms.mddapi.controller;
 
 import com.openclassrooms.mddapi.payload.request.UpdateUserRequest;
 import com.openclassrooms.mddapi.payload.response.MessageResponse;
-import com.openclassrooms.mddapi.payload.response.PostsResponse;
+import com.openclassrooms.mddapi.payload.response.PostResponse;
 import com.openclassrooms.mddapi.payload.response.UserResponse;
 import com.openclassrooms.mddapi.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 
 
 /**
@@ -31,7 +33,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}/subscribed-posts")
-    public ResponseEntity<PostsResponse> getUserSubscribedPosts(@PathVariable Long id) {
+    public ResponseEntity<ArrayList<PostResponse>> getUserSubscribedPosts(@PathVariable Long id) {
         return ResponseEntity.ok(userService.getPostsByUser(id));
     }
 }

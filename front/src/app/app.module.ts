@@ -23,6 +23,7 @@ import {MatDividerModule} from "@angular/material/divider";
 import { ThemesComponent } from './pages/themes/themes.component';
 import {JwtInterceptor} from "./interceptors/jwt.interceptor";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { TopicsListComponent } from './components/topics-list/topics-list.component';
 
 @NgModule({
     declarations: [
@@ -34,7 +35,8 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
         HeaderComponent,
         ArticlesComponent,
         ProfilComponent,
-        ThemesComponent
+        ThemesComponent,
+        TopicsListComponent,
     ],
     imports: [
         BrowserModule,

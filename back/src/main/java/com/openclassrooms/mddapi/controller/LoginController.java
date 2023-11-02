@@ -3,6 +3,7 @@ package com.openclassrooms.mddapi.controller;
 import com.openclassrooms.mddapi.payload.request.AuthenticationRequest;
 import com.openclassrooms.mddapi.payload.request.RegisterRequest;
 import com.openclassrooms.mddapi.payload.response.AuthenticationResponse;
+import com.openclassrooms.mddapi.payload.response.MessageResponse;
 import com.openclassrooms.mddapi.service.AuthenticationService;
 import com.openclassrooms.mddapi.payload.response.UserResponse;
 import jakarta.servlet.http.HttpServletRequest;
@@ -24,7 +25,7 @@ public class LoginController {
 
     @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/register")
-    public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest request) {
+    public ResponseEntity<MessageResponse> register(@RequestBody RegisterRequest request) {
         return ResponseEntity.ok(authService.register(request));
     }
 

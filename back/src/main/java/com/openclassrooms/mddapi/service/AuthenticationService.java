@@ -4,6 +4,7 @@ import com.openclassrooms.mddapi.model.User;
 import com.openclassrooms.mddapi.payload.request.AuthenticationRequest;
 import com.openclassrooms.mddapi.payload.request.RegisterRequest;
 import com.openclassrooms.mddapi.payload.response.AuthenticationResponse;
+import com.openclassrooms.mddapi.payload.response.MessageResponse;
 import com.openclassrooms.mddapi.payload.response.UserResponse;
 import com.openclassrooms.mddapi.repository.UserRepository;
 import com.openclassrooms.mddapi.service.JwtService;
@@ -36,7 +37,7 @@ public class AuthenticationService {
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
 
-    public AuthenticationResponse register(RegisterRequest request) {
+    public MessageResponse register(RegisterRequest request) {
         var user = User.builder()
                 .name(request.getUsername())
                 .email(request.getEmail())
@@ -44,8 +45,8 @@ public class AuthenticationService {
                 .build();
         userRepository.save(user);
         var jwtToken = jwtService.generateToken(user);
-        return AuthenticationResponse.builder()
-                .token(jwtToken)
+        return MessageResponse.builder()
+                .message("User registered successfully!")
                 .build();
     }
 
@@ -60,6 +61,10 @@ public class AuthenticationService {
         var jwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder()
                 .token(jwtToken)
+                .username(user.getName())
+                .email(user.getEmail())
+                .id(user.getId())
+
                 .build();
     }
 

@@ -14,6 +14,7 @@ import {SessionService} from "../../core/services/session.service";
 export class LoginComponent implements OnInit {
 
     onError = false;
+    hide = true;
     loginForm!: FormGroup;
 
     constructor(

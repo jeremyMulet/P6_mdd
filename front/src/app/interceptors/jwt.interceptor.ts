@@ -9,6 +9,7 @@ export class JwtInterceptor implements HttpInterceptor {
     public intercept(request: HttpRequest<any>, next: HttpHandler) {
         console.log(this.sessionService.isLogged)
         console.log(this.sessionService.sessionInformation?.token)
+        console.log(this.sessionService.sessionInformation?.id)
         if (this.sessionService.isLogged) {
             request = request.clone({
                 setHeaders: {
