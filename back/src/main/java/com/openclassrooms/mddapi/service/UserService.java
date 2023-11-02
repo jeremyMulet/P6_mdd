@@ -9,6 +9,7 @@ import com.openclassrooms.mddapi.model.User;
 import com.openclassrooms.mddapi.payload.request.UpdateUserRequest;
 import com.openclassrooms.mddapi.payload.response.MessageResponse;
 import com.openclassrooms.mddapi.payload.response.PostResponse;
+import com.openclassrooms.mddapi.payload.response.TopicResponse;
 import com.openclassrooms.mddapi.payload.response.UserResponse;
 import com.openclassrooms.mddapi.repository.UserRepository;
 import com.openclassrooms.mddapi.utils.DateUtils;
@@ -98,4 +99,20 @@ public class UserService  implements UserDetailsService {
         return userSubscribedPosts;
     }
 
+    public ArrayList<TopicResponse> getTopicsByUser(Long userId) {
+        ArrayList<TopicResponse> response = new ArrayList<>();
+        User user = userRepository.getReferenceById(userId);
+        Set<Topic> subscribedTopics = user.getSubscribedTopics();
+
+        for (Topic topic: subscribedTopics) {
+            response.add(
+                    TopicResponse.builder()
+                            .id(topic.getId())
+                            .name(topic.getName())
+                            .description(topic.getDescription())
+                            .build()
+            );
+        }
+        return response;
+    }
 }
