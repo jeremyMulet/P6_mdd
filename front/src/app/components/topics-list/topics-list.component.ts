@@ -1,15 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Topic} from "../../core/interfaces/topic";
+import {SessionService} from "../../core/services/session.service";
 
 @Component({
-  selector: 'app-topics-list',
-  templateUrl: './topics-list.component.html',
-  styleUrls: ['./topics-list.component.scss']
+    selector: 'app-topics-list',
+    templateUrl: './topics-list.component.html',
+    styleUrls: ['./topics-list.component.scss']
 })
-export class TopicsListComponent implements OnInit {
+export class TopicsListComponent {
 
-  constructor() { }
+    @Input() topics!: Topic[];
+    @Input() noButton?: boolean;
+    @Input() subscribe?: boolean | undefined;
 
-  ngOnInit(): void {
-  }
+    constructor(private sessionService: SessionService) {
+    }
+    subscribeTopic(): void {
+
+    }
+
+    unsubscribeTopic(): void {
+
+    }
 
 }

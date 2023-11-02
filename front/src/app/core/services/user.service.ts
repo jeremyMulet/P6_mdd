@@ -22,4 +22,6 @@ export class UserService {
     public getSubscribedPosts(id: number): Observable<Post[]> {
         return this.http.get<Post[]>(`${this.pathService}/${id}/subscribed-posts`)
     }
+
+
 }

@@ -1,1 +1,24 @@
-<p>topics-list works!</p>
+<div>
+    <div *ngIf="topics">
+        <mat-card *ngFor="let topic of topics">
+            <mat-card-header>
+                <mat-card-title>{{topic.name}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p>{{topic.description}}</p>
+            </mat-card-content>
+            <mat-card-actions *ngIf="subscribe !== undefined; else noButton">
+                <button *ngIf="subscribe; else unscribe" mat-raised-button color="primary">
+                    <span>S'abonner</span>
+                </button>
+                <ng-template #unscribe>
+                    <button mat-raised-button color="primary">
+                        <span>Se désabonner</span>
+                    </button>
+                </ng-template>
+            </mat-card-actions>
+            <ng-template #noButton>
+            </ng-template>
+        </mat-card>
+    </div>
+</div>

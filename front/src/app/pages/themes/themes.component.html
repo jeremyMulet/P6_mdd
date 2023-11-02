@@ -1,1 +1,7 @@
-<p>themes works!</p>
+<div>
+    <app-header></app-header>
+    <app-topics-list *ngIf="topics$ | async as topics; else loading" [topics]="topics" [subscribe]="undefined"></app-topics-list>
+    <ng-template #loading>
+        <p>Chargement en cours...</p>
+    </ng-template>
+</div>

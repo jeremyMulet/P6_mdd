@@ -1,7 +1,6 @@
 package com.openclassrooms.mddapi.service;
 
 import com.openclassrooms.mddapi.payload.response.TopicResponse;
-import com.openclassrooms.mddapi.payload.response.TopicsResponse;
 import com.openclassrooms.mddapi.repository.TopicRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,7 +16,7 @@ public class TopicService {
 
     private final TopicRepository topicRepository;
 
-    public TopicsResponse getAllTopics() {
+    public ArrayList<TopicResponse> getAllTopics() {
         var topics = topicRepository.findAll();
         ArrayList<TopicResponse> response = new ArrayList<>();
 
@@ -29,6 +28,6 @@ public class TopicService {
                     .build();
             response.add(topicResponse);
         });
-        return TopicsResponse.builder().topics(response).build();
+        return response;
     }
 }

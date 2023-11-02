@@ -1,11 +1,6 @@
 package com.openclassrooms.mddapi.service;
 
-import com.openclassrooms.mddapi.model.Post;
-import com.openclassrooms.mddapi.model.Topic;
-import com.openclassrooms.mddapi.model.User;
-import com.openclassrooms.mddapi.payload.request.PostRequest;
 import com.openclassrooms.mddapi.payload.response.PostResponse;
-import com.openclassrooms.mddapi.payload.response.PostsResponse;
 import com.openclassrooms.mddapi.repository.PostRepository;
 import com.openclassrooms.mddapi.repository.TopicRepository;
 import com.openclassrooms.mddapi.repository.UserRepository;
@@ -13,10 +8,6 @@ import com.openclassrooms.mddapi.utils.DateUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
 
 /**
  * Created by Jérémy MULET on 31/10/2023.
