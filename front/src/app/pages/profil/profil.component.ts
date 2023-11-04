@@ -23,7 +23,8 @@ export class ProfilComponent implements OnInit {
 
     profilForm: FormGroup = this.fb.group({
         username: ["", [Validators.required, Validators.min(3)]],
-        email: ["", [Validators.required, Validators.email]]
+        email: ["", [Validators.required, Validators.email]],
+        password:["", [Validators.required, Validators.minLength(8)]]
     });
 
     constructor(

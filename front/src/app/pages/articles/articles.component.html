@@ -1,24 +1,31 @@
 <div>
     <app-header></app-header>
 
-    <div>
-        <div>
+    <div class="content">
+        <div class="button-create" fxLayout="row" fxLayoutAlign="space-between center">
             <button mat-raised-button color="primary" routerLink="create">
-                <mat-icon>add</mat-icon>
                 <span>Créer un article</span>
             </button>
+            <button mat-raised-button color="secondary">
+                <span>Trier par</span>
+                <mat-icon>arrow_downward</mat-icon>
+            </button>
         </div>
-        <div *ngIf="posts$ | async as posts">
-        <mat-card *ngFor="let post of posts">
-            <mat-card-header>
-                <mat-card-title>{{post.title}}</mat-card-title>
-                <mat-card-subtitle>{{post.author}}</mat-card-subtitle>
-                <mat-card-subtitle>{{post.date | date: 'longDate'}}</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <p>{{post.content}}</p>
-            </mat-card-content>
-        </mat-card>
+        <div fxLayout="row wrap" fxLayout.xs="column" *ngIf="posts$ | async as posts">
+            <div fxFlex.gt-xs="calc(50% - 16px)" *ngFor="let post of posts; let i = index" [ngClass]="{'last-card': i === posts.length - 1}">
+                <mat-card>
+                    <mat-card-header class="no-margin" fxLayout="column">
+                        <mat-card-title>{{post.title}}</mat-card-title>
+                        <div fxLayout="row" fxLayoutAlign="start end" >
+                            <mat-card-subtitle>{{post.author}}</mat-card-subtitle>
+                            <mat-card-subtitle>{{post.date | date: 'longDate'}}</mat-card-subtitle>
+                        </div>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>{{post.content}}</p>
+                    </mat-card-content>
+                    </mat-card>
+            </div>
         </div>
     </div>
 </div>

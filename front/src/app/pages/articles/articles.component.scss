@@ -1,0 +1,32 @@
+.button-create {
+    margin: 1rem;
+}
+.mat-card {
+    margin: 1rem;
+    border-radius: 0.5rem;
+    background: #F5F5F5;
+
+    mat-card-title{
+        color: #000;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+    mat-card-subtitle {
+        margin-right: 1rem;
+        color: #000;
+        font-size: 0.875rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    .no-margin{
+        margin: 0;
+    }
+
+    .last-card {
+        fxFlex: calc(50% - 16px);
+    }
+
+}

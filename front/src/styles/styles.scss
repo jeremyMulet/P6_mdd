@@ -9,6 +9,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .form-header {
     margin: 2rem;
 }
+.content {
+    width: 75%;
+    max-width: 1080px;
+    margin: auto;
+}
 .form {
     mat-card-header {
         margin: 1rem;

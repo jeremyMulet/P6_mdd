@@ -7,6 +7,7 @@ import {NotFoundComponent} from "./pages/not-found/not-found.component";
 import {ArticlesComponent} from "./pages/articles/articles.component";
 import {ProfilComponent} from "./pages/profil/profil.component";
 import {ThemesComponent} from "./pages/themes/themes.component";
+import {TestComponent} from "./test/test.component";
 
 const routes: Routes = [
     {
@@ -32,6 +33,10 @@ const routes: Routes = [
     {
         path: 'profil',
         component: ProfilComponent
+    },
+    {
+        path: 'test',
+        component: TestComponent
     },
     {
         path: '**',
