@@ -26,6 +26,8 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { TopicsListComponent } from './components/topics-list/topics-list.component';
 import { AddPostComponent } from './add-post/add-post.component';
 import { TestComponent } from './test/test.component';
+import { PostDetailComponent } from './pages/post-detail/post-detail.component';
+import { BackButtonComponent } from './components/back-button/back-button.component';
 
 @NgModule({
     declarations: [
@@ -41,6 +43,8 @@ import { TestComponent } from './test/test.component';
         TopicsListComponent,
         AddPostComponent,
         TestComponent,
+        PostDetailComponent,
+        BackButtonComponent,
     ],
     imports: [
         BrowserModule,

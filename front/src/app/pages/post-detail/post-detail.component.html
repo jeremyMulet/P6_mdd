@@ -1,0 +1,30 @@
+<div>
+    <app-header></app-header>
+    <div class="content" fxLayout="column" *ngIf="post$ | async as data">
+        <div fxLayout="row" fxLayoutAlign="start center">
+            <app-back-button></app-back-button>
+            <h1>{{data.title}}</h1>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-around center">
+            <h3>{{data.date | date: 'dd-MM-yyyy'}}</h3>
+            <h3>{{data.author}}</h3>
+            <h3>{{data.topic}}</h3>
+        </div>
+        <p>{{data.content}}</p>
+
+        <div class="separator"></div>
+
+        <div class="post-comments" fxLayout="column">
+            <h3>Commentaires</h3>
+            <form class="example-form" type="submit">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Leave a comment</mat-label>
+                    <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+                </mat-form-field>
+                <button mat-icon-button>
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

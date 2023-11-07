@@ -12,7 +12,7 @@
             </button>
         </div>
         <div fxLayout="row wrap" fxLayout.xs="column" *ngIf="posts$ | async as posts">
-            <div fxFlex.gt-xs="calc(50% - 16px)" *ngFor="let post of posts; let i = index" [ngClass]="{'last-card': i === posts.length - 1}">
+            <div fxFlex.gt-xs="calc(50% - 16px)" *ngFor="let post of posts; let i = index" [ngClass]="{'last-card': i === posts.length - 1}" [routerLink]="'/post/' + post.id">
                 <mat-card>
                     <mat-card-header class="no-margin" fxLayout="column">
                         <mat-card-title>{{post.title}}</mat-card-title>

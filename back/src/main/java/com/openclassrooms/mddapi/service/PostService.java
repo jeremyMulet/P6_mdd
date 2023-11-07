@@ -25,6 +25,7 @@ public class PostService {
         return PostResponse.builder()
                 .title(post.getTitle())
                 .content(post.getContent())
+                .topic(post.getTopic().getName())
                 .id(post.getId())
                 .author(post.getAuthor().getName())
                 .date(DateUtils.format(post.getUpdatedAt()))

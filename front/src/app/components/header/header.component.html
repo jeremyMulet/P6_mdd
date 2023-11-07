@@ -1,9 +1,9 @@
-<div>
+<div class="header">
     <mat-toolbar>
         <img src="/assets/logo_p6.png" class="logo" alt="logo"/>
         <span class="spacer"></span>
         <div *ngIf="$isLogged() | async">
-            <button routerLink="/articles" mat-button>
+            <button routerLink="/posts" mat-button>
                 Articles
             </button>
             <button routerLink="/themes" mat-button>

@@ -8,6 +8,7 @@ import {ArticlesComponent} from "./pages/articles/articles.component";
 import {ProfilComponent} from "./pages/profil/profil.component";
 import {ThemesComponent} from "./pages/themes/themes.component";
 import {TestComponent} from "./test/test.component";
+import {PostDetailComponent} from "./pages/post-detail/post-detail.component";
 
 const routes: Routes = [
     {
@@ -23,8 +24,12 @@ const routes: Routes = [
         component: RegisterComponent
     },
     {
-        path: 'articles',
+        path: 'posts',
         component: ArticlesComponent
+    },
+    {
+        path: 'post/:id',
+        component: PostDetailComponent
     },
     {
         path: 'themes',
