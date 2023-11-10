@@ -1,44 +1,46 @@
 <div>
     <app-header></app-header>
 
-    <div class="content" fxLayout="column" fxLayoutAlign="center center">
-        <mat-card-header fxFlex>
-            <mat-card-title>Profil utilisateur</mat-card-title>
-        </mat-card-header>
+    <div class="content">
 
-        <form [formGroup]="profilForm" (ngSubmit)="onSubmit()">
-            <mat-card-content fxLayout="column">
-                <mat-form-field appearance="outline" fxFlex>
-                    <mat-label>Username</mat-label>
-                    <input matInput formControlName="username">
-                </mat-form-field>
+        <div class="infos-user" fxLayout="column" fxLayoutAlign="center center">
+            <h1 fxFlex> Profil utilisateur </h1>
 
-                <mat-form-field appearance="outline" fxFlex>
-                    <mat-label>Email</mat-label>
-                    <input matInput formControlName="email">
-                </mat-form-field>
+            <form [formGroup]="profilForm" (ngSubmit)="onSubmit()">
+                <mat-card-content fxLayout="column">
+                    <mat-form-field appearance="outline" fxFlex>
+                        <mat-label>Username</mat-label>
+                        <input matInput formControlName="username">
+                    </mat-form-field>
 
-                <mat-form-field appearance="outline" fxFlex>
-                    <mat-label>Password</mat-label>
-                    <input matInput formControlName="password">
-                </mat-form-field>
-            </mat-card-content>
-            <mat-card-footer fxLayout="column" fxLayoutAlign="center center">
-                <button mat-raised-button color="primary" type="submit" [disabled]="profilForm.invalid">Sauvegarder
-                </button>
-                <p class="error" (click)="logout()">Se déconnecter</p>
-            </mat-card-footer>
-        </form>
-        <hr>
-        <mat-divider style="height: 1px;"></mat-divider>
-        <mat-card>
-        <mat-card-header fxFlex>
-            <mat-card-title>Abonnements</mat-card-title>
-        </mat-card-header>
-            <app-topics-list *ngIf="myTopics$ | async as topics; else loading" [topics]="topics" [subscribe]="false"></app-topics-list>
-            <ng-template #loading>
-                <p>Chargement en cours...</p>
-            </ng-template>
-        </mat-card>
+                    <mat-form-field appearance="outline" fxFlex>
+                        <mat-label>Email</mat-label>
+                        <input matInput formControlName="email">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" fxFlex>
+                        <mat-label>Password</mat-label>
+                        <input matInput formControlName="password">
+                    </mat-form-field>
+                </mat-card-content>
+                <mat-card-footer fxLayout="column" fxLayoutAlign="center center">
+                    <button mat-raised-button color="primary" type="submit" [disabled]="profilForm.invalid">Sauvegarder
+                    </button>
+                    <p class="error" (click)="logout()">Se déconnecter</p>
+                </mat-card-footer>
+            </form>
+        </div>
+        <div class="separator"></div>
+        <div class="subscribe-content" >
+            <h1 fxLayoutAlign="center center"> Abonnements </h1>
+            <div>
+                <app-topics-list *ngIf="myTopics$ | async as topics; else loading"
+                                 [topics]="topics"
+                                 [subscribe]="false"></app-topics-list>
+                <ng-template #loading>
+                    <p>Chargement en cours...</p>
+                </ng-template>
+            </div>
+        </div>
     </div>
 </div>
